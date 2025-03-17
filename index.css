@@ -1,3 +1,5 @@
+/*
+
 *{
     box-sizing: border-box;
     font-family: 'Oxygen' system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 
@@ -57,19 +59,21 @@ a {
     padding: 0 8rem;
     text-align: center;
 }
-
+*/
+/*
 .section__img,
 .section__img-inline{
     width: 100%;
     border-radius: .75rem;
-    /* eixo x, eixo y, blur,expansão/recuo, cor */
+    /* eixo x, eixo y, blur,expansão/recuo, cor */ /*
     box-shadow: 0 1rem 2rem -0.5rem rgba( 20, 116, 180, 0.25);
     object-fit: cover;
     object-position: top;
     position: relative;
     max-height: 30rem;
 }
-
+*/
+/*
 .section__title{
     font-size: 3rem;
     font-weight: 300;
@@ -82,3 +86,194 @@ a {
     line-height: 1.75;
     margin: 4 rem auto;
 }
+
+*/
+
+* {
+    box-sizing: border-box;
+    font-family: 'Oxygen', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-background: #030207;
+    --color-white: #fff;
+    --color-blue: #1474b4;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-white);
+    overflow-x: hidden; /* Evita estouro horizontal */
+}
+
+a {
+    color: var(--color-blue);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), var(--color-background));
+    padding: 0 1rem; /* Padding para evitar estouro */
+}
+
+.hero__background {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    left: 0;
+}
+
+.hero__foreground {
+    color: var(--color-white);
+    padding-top: 40vh;
+    text-align: center;
+    padding: 0 1rem; /* Padding para evitar estouro */
+}
+
+.hero__title {
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+.hero__text {
+    margin-top: 1rem;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+}
+
+/* Seções */
+.section {
+    padding: 0 1rem; /* Padding reduzido para mobile */
+    text-align: center;
+    max-width: 1200px; /* Limita a largura máxima do conteúdo */
+    margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+.section__img,
+.section__img-inline {
+    width: 100%;
+    max-width: 500px; /* Largura máxima para a imagem */
+    border-radius: 0.75rem;
+    box-shadow: 0 1rem 2rem -0.5rem rgba(20, 116, 180, 0.25);
+    object-fit: cover;
+    object-position: top;
+    margin: 0 auto 2rem; /* Centraliza a imagem e adiciona margem inferior */
+    display: block; /* Garante que a imagem seja tratada como bloco */
+}
+
+.section__title {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 2rem auto;
+}
+
+.section__text,
+.section__text-inline {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 2rem auto;
+    padding: 0 1rem; /* Adicionado padding para evitar estouro */
+}
+
+/* Layout responsivo para desktop */
+@media (min-width: 768px) {
+    .section__img-inline {
+        width: 50%; /* Largura da imagem em desktop */
+        max-width: none; /* Remove a largura máxima */
+        margin: 0; /* Remove a margem automática */
+    }
+
+    .section__text-inline {
+        width: 50%; /* Largura do texto em desktop */
+        padding-left: 2rem; /* Espaçamento entre a imagem e o texto */
+    }
+
+    /* Contêiner flexível para alinhar imagem e texto lado a lado */
+    .section__inline-container {
+        display: flex;
+        align-items: center; /* Alinha verticalmente */
+        gap: 2rem; /* Espaçamento entre imagem e texto */
+    }
+}
+
+/* Galeria */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste no tamanho mínimo */
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 0 1rem; /* Adicionado padding para evitar estouro */
+    justify-items: center; /* Centraliza os itens da galeria */
+}
+
+.gallery__img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Garante que o contêiner ocupe 100% da largura */
+    aspect-ratio: 1 / 1; /* Mantém a proporção quadrada */
+    overflow: hidden; /* Evita que a imagem ultrapasse o contêiner */
+    border-radius: 0.75rem;
+}
+
+.gallery__img {
+    width: 100%;
+    height: 100%; /* Garante que a imagem ocupe todo o espaço do contêiner */
+    object-fit: cover; /* Mantém a proporção da imagem */
+    border-radius: 0.75rem;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.875rem;
+    background-color: var(--color-background); /* Adicionado fundo para evitar estouro */
+}
+
+.footer svg {
+    vertical-align: middle;
+}
+
+/* Media Queries para Desktop */
+@media (min-width: 768px) {
+    .hero__title {
+        font-size: 5rem;
+    }
+
+    .hero__text {
+        margin-top: 2rem;
+        letter-spacing: 0.5rem;
+    }
+
+    .section {
+        padding: 0 8rem; /* Padding maior para desktop */
+    }
+
+    .section__title {
+        font-size: 3rem;
+        margin: 4rem auto;
+    }
+
+    .section__text,
+    .section__text-inline {
+        font-size: 1.25rem;
+        margin: 4rem auto;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(4, 1fr); /* 4 colunas para desktop */
+    }
+
+    .footer {
+        font-size: 1rem;
+    }
+}
+    
